@@ -6,7 +6,7 @@ const { SAVE_ALBUMS } = types;
 export default {
   namespaced: true,
   state: {
-    albums: {},
+    albums: [],
   },
   actions: {
     /**
@@ -17,9 +17,8 @@ export default {
      */
     async getAlbums({ commit }) {
       try {
-        const data = await api.fetchAlbums();
-        console.log(data);
-        commit(SAVE_ALBUMS, data);
+        const { album } = await api.fetchAlbums();
+        commit(SAVE_ALBUMS, album);
         return true;
       } catch (error) {
         return error;
@@ -34,8 +33,6 @@ export default {
      * @param {Object} payload - The albums to store
      */
     [SAVE_ALBUMS](state, payload) {
-      console.log(payload);
-
       state.albums = payload;
     },
   },
@@ -43,7 +40,7 @@ export default {
     /**
      * Albums
      *
-     * @returns {Object} - The albums stored
+     * @returns {Array<Object>} - The albums stored
      */
     albums: (state) => state.albums,
   },
