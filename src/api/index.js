@@ -1,16 +1,7 @@
 import axios from 'axios';
 
-/**
- * http://ws.audioscrobbler.com/2.0/
- * ?method=tag.gettopalbums
- * &tag=disco
- * &api_key=cd5651d9a6c60934a62baafc6290e70c
- * &format=json
-
- */
-
-const API_HOST = 'http://ws.audioscrobbler.com/2.0/';
-const API_KEY = 'cd5651d9a6c60934a62baafc6290e70c';
+const API_HOST = process.env.VUE_APP_API_HOST;
+const API_KEY = process.env.VUE_APP_API_KEY;
 
 /**
  * Fetch albums
