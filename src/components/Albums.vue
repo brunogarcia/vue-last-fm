@@ -7,6 +7,7 @@
       offset-sm="3"
       offset-md="2"
     >
+      <!--Album List-->
       <v-card>
         <v-container fluid>
           <v-row>
@@ -16,41 +17,64 @@
               class="d-flex child-flex"
               cols="4"
             >
-              <v-card
-                flat
-                tile
-                class="d-flex"
-              >
-                <v-img
-                  :src="getExtraLargeImage(album.image)"
-                  :lazy-src="getSmallImage(album.image)"
-                  aspect-ratio="1"
-                  class="grey lighten-2"
-                >
-                  <template v-slot:placeholder>
-                    <v-row
-                      class="fill-height ma-0"
-                      align="center"
-                      justify="center"
+              <!--Album Image-->
+              <v-hover>
+                <template v-slot:default="{ hover }">
+                  <v-card
+                    flat
+                    tile
+                    class="d-flex"
+                  >
+                    <!--Image-->
+                    <v-img
+                      :src="getExtraLargeImage(album.image)"
+                      :lazy-src="getSmallImage(album.image)"
+                      aspect-ratio="1"
+                      class="grey lighten-2"
                     >
-                      <v-progress-circular
-                        indeterminate
-                        color="grey lighten-5"
-                      />
-                    </v-row>
-                  </template>
-                </v-img>
-              </v-card>
+                      <!--Overlay-->
+                      <v-fade-transition>
+                        <v-overlay
+                          v-if="hover"
+                          absolute
+                          color="#036358"
+                        >
+                          <v-btn>See more info</v-btn>
+                        </v-overlay>
+                      </v-fade-transition>
+
+                      <!--Image placeholder-->
+                      <template v-slot:placeholder>
+                        <v-row
+                          class="fill-height ma-0"
+                          align="center"
+                          justify="center"
+                        >
+                          <v-progress-circular
+                            indeterminate
+                            color="grey lighten-5"
+                          />
+                        </v-row>
+                      </template>
+                    </v-img>
+                  </v-card>
+                </template>
+              </v-hover>
+              <!--end Album Image-->
             </v-col>
           </v-row>
         </v-container>
       </v-card>
+      <!--end Album List-->
     </v-col>
   </v-row>
 </template>
 
 <script>
 import { mapGetters } from 'vuex';
+
+const SMALL = 'small';
+const EXTRA_LARGE = 'extralarge';
 
 export default {
   name: 'AlbumsComponent',
@@ -62,14 +86,26 @@ export default {
   },
 
   methods: {
-    getSmallImage(image) {
-      const [small] = image;
-      return small['#text'];
+    /**
+     * Get small image
+     *
+     * @param {Array<Object} images - The image list
+     * @returns {String}
+     */
+    getSmallImage(images) {
+      const data = images.find((image) => image.size === SMALL);
+      return data['#text'];
     },
 
-    getExtraLargeImage(image) {
-      const [, , , extralarge] = image;
-      return extralarge['#text'];
+    /**
+     * Get extra-large image
+     *
+     * @param {Array<Object} images - The image list
+     * @returns {String}
+     */
+    getExtraLargeImage(images) {
+      const data = images.find((image) => image.size === EXTRA_LARGE);
+      return data['#text'];
     },
   },
 
