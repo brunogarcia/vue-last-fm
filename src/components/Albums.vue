@@ -8,6 +8,12 @@
       <!--Album List-->
       <v-card>
         <v-container fluid>
+          <v-card-text>
+            <div>Genre</div>
+            <p class="display-1 text--primary">
+              {{ tag }}
+            </p>
+          </v-card-text>
           <v-row>
             <v-col
               v-for="(album, index) in albums"
@@ -84,6 +90,7 @@ export default {
 
   computed: {
     ...mapGetters({
+      tag: 'tags/tag',
       albums: 'albums/albums',
     }),
   },

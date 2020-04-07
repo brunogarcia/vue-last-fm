@@ -14,10 +14,11 @@ export default {
      *
      * @param {Object} context - Vuex context
      * @param {Function} context.commit - Vuex commit
+     * @param {String} payload - The tag for search
      */
-    async getAlbums({ commit }) {
+    async getAlbums({ commit }, payload) {
       try {
-        const { album } = await api.fetchAlbums();
+        const { album } = await api.fetchAlbums(payload);
         commit(SAVE_ALBUMS, album);
         return true;
       } catch (error) {

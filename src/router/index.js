@@ -6,8 +6,8 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: '/',
-    name: 'Albums',
-    component: () => import(/* webpackChunkName: "album-list" */ '../views/Albums.vue'),
+    name: 'Home',
+    component: () => import(/* webpackChunkName: "home" */ '../views/Home.vue'),
   },
   {
     path: '/album/:artist/:album',

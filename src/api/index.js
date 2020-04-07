@@ -3,18 +3,39 @@ import constants from '@/utils/constants';
 
 const { API } = constants;
 
+// http://ws.audioscrobbler.com/2.0/?method=tag.getTopTags&api_key=YOUR_API_KEY&format=json
+
 /**
- * Fetch albums
+ * Fetch top tags
  *
  * @async
  * @returns {Promise}
  */
-async function fetchAlbums() {
-  const genre = 'post-punk';
+async function fetchTopTags() {
+  const endpoint = 'tag.getTopTags';
+
+  try {
+    const { data } = await axios.get(`${API.HOST}?method=${endpoint}&api_key=${API.KEY}&format=json`);
+    return data.toptags.tag;
+  } catch (error) {
+    // send to Sentry
+    console.log(error);
+    throw new Error(error.message);
+  }
+}
+
+/**
+ * Fetch albums by tag
+ *
+ * @async
+ * @param {String} tag - The tag for search
+ * @returns {Promise}
+ */
+async function fetchAlbums(tag) {
   const endpoint = 'tag.gettopalbums';
 
   try {
-    const { data } = await axios.get(`${API.HOST}?method=${endpoint}&tag=${genre}&api_key=${API.KEY}&format=json`);
+    const { data } = await axios.get(`${API.HOST}?method=${endpoint}&tag=${tag}&api_key=${API.KEY}&format=json`);
     return data.albums;
   } catch (error) {
     // send to Sentry
@@ -47,6 +68,7 @@ async function fetchAlbumInfo({ artist, album }) {
 
 
 export default {
+  fetchTopTags,
   fetchAlbums,
   fetchAlbumInfo,
 };
