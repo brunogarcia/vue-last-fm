@@ -1,6 +1,5 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Albums from '../views/Albums.vue';
 
 Vue.use(VueRouter);
 
@@ -8,15 +7,12 @@ const routes = [
   {
     path: '/',
     name: 'Albums',
-    component: Albums,
+    component: () => import(/* webpackChunkName: "album-list" */ '../views/Albums.vue'),
   },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue'),
+    path: '/album/:artist/:album',
+    name: 'Album',
+    component: () => import(/* webpackChunkName: "album-info" */ '../views/Album.vue'),
   },
 ];
 

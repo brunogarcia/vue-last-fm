@@ -18,7 +18,7 @@ export default {
      * @param {String} payload.artist - The artist name
      * @param {String} payload.album - The album name
      */
-    async getAlbumInfo({ commit }, payload) {
+    async getAlbum({ commit }, payload) {
       try {
         const data = await api.fetchAlbumInfo(payload);
         commit(SAVE_ALBUM, data);

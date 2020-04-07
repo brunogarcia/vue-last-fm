@@ -39,7 +39,9 @@
                           absolute
                           color="#036358"
                         >
-                          <v-btn>See more info</v-btn>
+                          <v-btn :to="getAlbumLink(album)">
+                            See more info
+                          </v-btn>
                         </v-overlay>
                       </v-fade-transition>
 
@@ -87,10 +89,23 @@ export default {
 
   methods: {
     /**
+     * Get album link
+     *
+     * @param {Object} album - The album data
+     * @returns {String} - The album link
+     */
+    getAlbumLink(album) {
+      const { name: albumName, artist } = album;
+      const { name: artistName } = artist;
+
+      return `/album/${artistName}/${albumName}`;
+    },
+
+    /**
      * Get small image
      *
      * @param {Array<Object} images - The image list
-     * @returns {String}
+     * @returns {String} - The album small image
      */
     getSmallImage(images) {
       const data = images.find((image) => image.size === SMALL);
@@ -101,46 +116,12 @@ export default {
      * Get extra-large image
      *
      * @param {Array<Object} images - The image list
-     * @returns {String}
+     * @returns {String}- The album extra-large image
      */
     getExtraLargeImage(images) {
       const data = images.find((image) => image.size === EXTRA_LARGE);
       return data['#text'];
     },
   },
-
-  /**
-    {
-      "name": "The Perfect Red Velvet - The 2nd Album Repackage",
-      "mbid": "",
-      "url": "https://www.last.fm/music/Red+Velvet",
-      "artist": {
-        "name": "Red Velvet",
-        "mbid": "4f0cb3b7-6c06-4317-ae35-ddf3106a17ee",
-        "url": "https://www.last.fm/music/Red+Velvet"
-      },
-      "image": [
-        {
-          "#text": "https://lastfm.freetls.fastly.net/i/u/34s/d31c361f1d65a46ed1d6aeaa99a23b9a.png",
-          "size": "small"
-        },
-        {
-          "#text": "https://lastfm.freetls.fastly.net/i/u/64s/d31c361f1d65a46ed1d6aeaa99a23b9a.png",
-          "size": "medium"
-        },
-        {
-          "#text": "https://lastfm.freetls.fastly.net/i/u/174s/d31c361f1d65a46ed1d6aeaa99a23b9a.png",
-          "size": "large"
-        },
-        {
-          "#text": "https://lastfm.freetls.fastly.net/i/u/300x300/d31c361f1d65a46ed1d6aeaa99a23b9a.png",
-          "size": "extralarge"
-        }
-      ],
-      "@attr": {
-        "rank": "1"
-      }
-    }
-   */
 };
 </script>

@@ -11,23 +11,13 @@
     </v-app-bar>
 
     <v-content>
-      <Albums />
+      <router-view />
     </v-content>
   </v-app>
 </template>
 
 <script>
-import Albums from './views/Albums.vue';
-
 export default {
   name: 'App',
-
-  components: {
-    Albums,
-  },
-
-  data: () => ({
-    //
-  }),
 };
 </script>
