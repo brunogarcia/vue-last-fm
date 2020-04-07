@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-const API_KEY = process.env.VUE_APP_API_KEY;
-const API_HOST = process.env.VUE_APP_API_HOST;
+const API_KEY = process.env.NODE_ENV === 'production' ? process.env.vue_app_api_key : process.env.VUE_APP_API_KEY;
+const API_HOST = process.env.NODE_ENV === 'production' ? process.env.vue_app_api_host : process.env.VUE_APP_API_HOST;
 
 /**
  * Fetch albums
