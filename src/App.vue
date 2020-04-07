@@ -6,7 +6,9 @@
       dark
     >
       <div class="d-flex align-center">
-        <v-img src="/logo.png" />
+        <router-link to="/">
+          <v-img src="/logo.png" />
+        </router-link>
       </div>
 
       <v-spacer />

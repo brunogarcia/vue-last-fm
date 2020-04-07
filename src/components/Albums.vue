@@ -2,10 +2,8 @@
   <v-row>
     <v-col
       cols="12"
-      sm="6"
-      md="8"
-      offset-sm="3"
-      offset-md="2"
+      lg="8"
+      offset-lg="2"
     >
       <!--Album List-->
       <v-card>
@@ -15,7 +13,9 @@
               v-for="(album, index) in albums"
               :key="index"
               class="d-flex child-flex"
-              cols="4"
+              cols="12"
+              sm="6"
+              lg="4"
             >
               <!--Album Image-->
               <v-hover>
