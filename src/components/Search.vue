@@ -1,16 +1,24 @@
 <template>
-  <v-autocomplete
-    v-model="select"
-    :items="items"
-    :search-input.sync="search"
-    flat
-    clearable
-    cache-items
-    class="mx-4"
-    hide-no-data
-    hide-details
-    label="What music genre do you like more?"
-  />
+  <v-row>
+    <v-col
+      cols="12"
+      lg="6"
+      offset-lg="3"
+    >
+      <v-autocomplete
+        v-model="select"
+        :items="items"
+        :search-input.sync="search"
+        flat
+        clearable
+        cache-items
+        class="mx-4"
+        hide-no-data
+        hide-details
+        label="What music genre do you like more?"
+      />
+    </v-col>
+  </v-row>
 </template>
 
 <script>
