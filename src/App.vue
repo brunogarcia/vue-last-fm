@@ -8,6 +8,15 @@
       <div class="d-flex align-center">
         <v-img src="/logo.png" />
       </div>
+
+      <v-spacer />
+
+      <v-btn
+        to="/about"
+        icon
+      >
+        <v-icon>mdi-face-profile</v-icon>
+      </v-btn>
     </v-app-bar>
 
     <v-content>
