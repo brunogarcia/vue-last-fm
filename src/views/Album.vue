@@ -36,7 +36,7 @@ export default {
       try {
         await this.getAlbum({ artist, album });
       } catch (error) {
-        // show snackbar
+        // TODO: show snackbar
       } finally {
         this.loading = false;
       }

@@ -2,7 +2,11 @@ import api from '@/api';
 import types from './types';
 import mapTags from './mapTags';
 
-const { SAVE_TAG, SAVE_TAGS } = types;
+const {
+  SAVE_TAG,
+  SAVE_TAGS,
+  SAVE_TAG_INFO,
+} = types;
 
 export default {
   namespaced: true,
@@ -10,6 +14,7 @@ export default {
   state: {
     tag: null,
     tags: [],
+    tagInfo: {},
   },
 
   actions: {
@@ -23,6 +28,23 @@ export default {
     async saveTagSelected({ commit }, payload) {
       try {
         commit(SAVE_TAG, payload);
+        return true;
+      } catch (error) {
+        return error;
+      }
+    },
+
+    /**
+     * Get tag info
+     *
+     * @param {Object} context - Vuex context
+     * @param {Function} context.commit - Vuex commit
+     * @param {String} payload - The tag for search
+     */
+    async getTagInfo({ commit }, payload) {
+      try {
+        const data = await api.fetchTagInfo(payload);
+        commit(SAVE_TAG_INFO, data);
         return true;
       } catch (error) {
         return error;
@@ -58,6 +80,16 @@ export default {
     },
 
     /**
+     * Save tag info
+     *
+     * @param {Object} state - Vuex state
+     * @param {Object} payload - The data to store
+     */
+    [SAVE_TAG_INFO](state, payload) {
+      state.tagInfo = payload;
+    },
+
+    /**
      * Save tags
      *
      * @param {Object} state - Vuex state
@@ -75,6 +107,13 @@ export default {
      * @returns {String} - The tag stored
      */
     tag: (state) => state.tag,
+
+    /**
+     * Tag info
+     *
+     * @returns {Object} - The tag info stored
+     */
+    tagInfo: (state) => state.tagInfo.summary,
 
     /**
      * Tags

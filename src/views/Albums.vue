@@ -1,13 +1,18 @@
 <template>
   <v-container>
     <AlbumsLoader v-if="loading" />
-    <AlbumsComponent v-else />
+    <AlbumsComponent v-else>
+      <template v-slot:tag-info>
+        <TagInfo />
+      </template>
+    </AlbumsComponent>
   </v-container>
 </template>
 
 <script>
 import isNil from 'lodash.isnil';
 import { mapActions, mapGetters } from 'vuex';
+import TagInfo from '@/views/TagInfo.vue';
 import AlbumsComponent from '@/components/Albums.vue';
 import AlbumsLoader from '@/components/AlbumsLoader.vue';
 
@@ -15,6 +20,7 @@ export default {
   name: 'AlbumsView',
 
   components: {
+    TagInfo,
     AlbumsLoader,
     AlbumsComponent,
   },
@@ -50,7 +56,7 @@ export default {
       try {
         await this.getAlbums(this.tag);
       } catch (error) {
-        // show snackbar
+        // TODO: show snackbar
       } finally {
         this.loading = false;
       }

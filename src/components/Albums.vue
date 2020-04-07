@@ -5,15 +5,13 @@
       lg="8"
       offset-lg="2"
     >
-      <!--Album List-->
+      <!--Albums-->
       <v-card>
         <v-container fluid>
-          <v-card-text>
-            <div>Genre</div>
-            <p class="display-1 text--primary">
-              {{ tag }}
-            </p>
-          </v-card-text>
+          <!--Tag Info-->
+          <slot name="tag-info" />
+
+          <!--List-->
           <v-row>
             <v-col
               v-for="(album, index) in albums"

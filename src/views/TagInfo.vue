@@ -1,35 +1,40 @@
 <template>
-  <v-container>
-    <SearchComponent v-if="!loading" />
-  </v-container>
+  <TagInfoComponent />
 </template>
 
 <script>
-import { mapActions } from 'vuex';
-import SearchComponent from '@/components/Search.vue';
+import { mapActions, mapGetters } from 'vuex';
+import TagInfoComponent from '@/components/TagInfo.vue';
 
 export default {
-  name: 'SearchView',
+  name: 'TagInfoView',
 
   components: {
-    SearchComponent,
+    TagInfoComponent,
   },
 
   data: () => ({
     loading: true,
   }),
 
+  computed: {
+    ...mapGetters({
+      tag: 'tags/tag',
+    }),
+  },
+
   created() {
     this.loadData();
   },
+
   methods: {
     ...mapActions({
-      getTopTags: 'tags/getTopTags',
+      getTagInfo: 'tags/getTagInfo',
     }),
 
     async loadData() {
       try {
-        await this.getTopTags();
+        await this.getTagInfo(this.tag);
       } catch (error) {
         // TODO: show snackbar
       } finally {

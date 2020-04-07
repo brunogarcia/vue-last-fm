@@ -3,7 +3,26 @@ import constants from '@/utils/constants';
 
 const { API } = constants;
 
-// http://ws.audioscrobbler.com/2.0/?method=tag.getTopTags&api_key=YOUR_API_KEY&format=json
+/**
+ * Fetch tag info
+ *
+ * @async
+ * @param {String} tag - The tag for search
+ * @returns {Promise}
+ */
+async function fetchTagInfo(tag) {
+  const endpoint = 'tag.getinfo';
+
+  try {
+    const { data } = await axios.get(`${API.HOST}?method=${endpoint}&tag=${tag}&api_key=${API.KEY}&format=json`);
+    return data.tag.wiki;
+  } catch (error) {
+    // TODO: send to Sentry
+    console.log(error);
+    throw new Error(error.message);
+  }
+}
+
 
 /**
  * Fetch top tags
@@ -18,7 +37,7 @@ async function fetchTopTags() {
     const { data } = await axios.get(`${API.HOST}?method=${endpoint}&api_key=${API.KEY}&format=json`);
     return data.toptags.tag;
   } catch (error) {
-    // send to Sentry
+    // TODO: send to Sentry
     console.log(error);
     throw new Error(error.message);
   }
@@ -38,7 +57,7 @@ async function fetchAlbums(tag) {
     const { data } = await axios.get(`${API.HOST}?method=${endpoint}&tag=${tag}&api_key=${API.KEY}&format=json`);
     return data.albums;
   } catch (error) {
-    // send to Sentry
+    // TODO: send to Sentry
     console.log(error);
     throw new Error(error.message);
   }
@@ -60,7 +79,7 @@ async function fetchAlbumInfo({ artist, album }) {
     const { data } = await axios.get(`${API.HOST}?method=${endpoint}&api_key=${API.KEY}&artist=${artist}&album=${album}&format=json`);
     return data.album;
   } catch (error) {
-    // send to Sentry
+    // TODO: send to Sentry
     console.log(error);
     throw new Error(error.message);
   }
@@ -69,6 +88,7 @@ async function fetchAlbumInfo({ artist, album }) {
 
 export default {
   fetchTopTags,
+  fetchTagInfo,
   fetchAlbums,
   fetchAlbumInfo,
 };

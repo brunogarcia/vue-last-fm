@@ -10,6 +10,16 @@
       <v-card>
         <v-container fluid>
           <v-row>
+            <v-col cols="12">
+              <v-skeleton-loader
+                class="mx-auto"
+                type="card-heading"
+              />
+              <v-skeleton-loader
+                class="mx-auto"
+                type="list-item-two-line"
+              />
+            </v-col>
             <v-col
               v-for="item in 12"
               :key="item"
