@@ -74,9 +74,10 @@
 
 <script>
 import { mapGetters } from 'vuex';
+import getImage from '@/utils/getImage';
+import constants from '@/utils/constants';
 
-const SMALL = 'small';
-const EXTRA_LARGE = 'extralarge';
+const { SMALL, EXTRA_LARGE } = constants.IMAGES;
 
 export default {
   name: 'AlbumsComponent',
@@ -108,8 +109,7 @@ export default {
      * @returns {String} - The album small image
      */
     getSmallImage(images) {
-      const data = images.find((image) => image.size === SMALL);
-      return data['#text'];
+      return getImage(images, SMALL);
     },
 
     /**
@@ -119,8 +119,7 @@ export default {
      * @returns {String}- The album extra-large image
      */
     getExtraLargeImage(images) {
-      const data = images.find((image) => image.size === EXTRA_LARGE);
-      return data['#text'];
+      return getImage(images, EXTRA_LARGE);
     },
   },
 };

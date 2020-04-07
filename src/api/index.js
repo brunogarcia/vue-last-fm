@@ -10,7 +10,7 @@ const API_HOST = process.env.VUE_APP_API_HOST;
  * @returns {Promise}
  */
 async function fetchAlbums() {
-  const genre = 'disco';
+  const genre = 'post-punk';
   const endpoint = 'tag.gettopalbums';
 
   try {

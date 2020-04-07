@@ -2,11 +2,11 @@
   <v-app>
     <v-app-bar
       app
-      color="red"
+      color="primary"
       dark
     >
       <div class="d-flex align-center">
-        Last.fm
+        <v-img src="/logo.png" />
       </div>
     </v-app-bar>
 
