@@ -1,7 +1,7 @@
 import axios from 'axios';
+import constants from '@/utils/constants';
 
-const API_KEY = process.env.NODE_ENV === 'production' ? process.env.vue_app_api_key : process.env.VUE_APP_API_KEY;
-const API_HOST = process.env.NODE_ENV === 'production' ? process.env.vue_app_api_host : process.env.VUE_APP_API_HOST;
+const { API } = constants;
 
 /**
  * Fetch albums
@@ -14,7 +14,7 @@ async function fetchAlbums() {
   const endpoint = 'tag.gettopalbums';
 
   try {
-    const { data } = await axios.get(`${API_HOST}?method=${endpoint}&tag=${genre}&api_key=${API_KEY}&format=json`);
+    const { data } = await axios.get(`${API.HOST}?method=${endpoint}&tag=${genre}&api_key=${API.KEY}&format=json`);
     return data.albums;
   } catch (error) {
     // send to Sentry
@@ -36,7 +36,7 @@ async function fetchAlbumInfo({ artist, album }) {
   const endpoint = 'album.getinfo';
 
   try {
-    const { data } = await axios.get(`${API_HOST}?method=${endpoint}&api_key=${API_KEY}&artist=${artist}&album=${album}&format=json`);
+    const { data } = await axios.get(`${API.HOST}?method=${endpoint}&api_key=${API.KEY}&artist=${artist}&album=${album}&format=json`);
     return data.album;
   } catch (error) {
     // send to Sentry
