@@ -33,9 +33,6 @@ export default {
     async loadData() {
       const { artist, album } = this.$route.params;
 
-      console.log('artist', artist);
-      console.log('album', album);
-
       try {
         await this.getAlbum({ artist, album });
       } catch (error) {

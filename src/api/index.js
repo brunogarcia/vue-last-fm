@@ -37,7 +37,6 @@ async function fetchAlbumInfo({ artist, album }) {
 
   try {
     const { data } = await axios.get(`${API_HOST}?method=${endpoint}&api_key=${API_KEY}&artist=${artist}&album=${album}&format=json`);
-    console.log(data);
     return data.album;
   } catch (error) {
     // send to Sentry
