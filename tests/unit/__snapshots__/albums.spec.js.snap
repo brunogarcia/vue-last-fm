@@ -1,0 +1,91 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Albums.vue Renders correctly 1`] = `
+<v-row-stub
+  tag="div"
+>
+  <v-col-stub
+    cols="12"
+    md="8"
+    offsetmd="2"
+    offsetsm="3"
+    sm="6"
+    tag="div"
+  >
+    <v-card-stub
+      loaderheight="4"
+      tag="div"
+    >
+      <v-container-stub
+        fluid="true"
+        tag="div"
+      >
+        <v-row-stub
+          tag="div"
+        >
+          <v-col-stub
+            class="d-flex child-flex"
+            cols="4"
+            tag="div"
+          >
+            <v-hover-stub
+              closedelay="0"
+              opendelay="0"
+            />
+          </v-col-stub>
+          <v-col-stub
+            class="d-flex child-flex"
+            cols="4"
+            tag="div"
+          >
+            <v-hover-stub
+              closedelay="0"
+              opendelay="0"
+            />
+          </v-col-stub>
+          <v-col-stub
+            class="d-flex child-flex"
+            cols="4"
+            tag="div"
+          >
+            <v-hover-stub
+              closedelay="0"
+              opendelay="0"
+            />
+          </v-col-stub>
+          <v-col-stub
+            class="d-flex child-flex"
+            cols="4"
+            tag="div"
+          >
+            <v-hover-stub
+              closedelay="0"
+              opendelay="0"
+            />
+          </v-col-stub>
+          <v-col-stub
+            class="d-flex child-flex"
+            cols="4"
+            tag="div"
+          >
+            <v-hover-stub
+              closedelay="0"
+              opendelay="0"
+            />
+          </v-col-stub>
+          <v-col-stub
+            class="d-flex child-flex"
+            cols="4"
+            tag="div"
+          >
+            <v-hover-stub
+              closedelay="0"
+              opendelay="0"
+            />
+          </v-col-stub>
+        </v-row-stub>
+      </v-container-stub>
+    </v-card-stub>
+  </v-col-stub>
+</v-row-stub>
+`;
