@@ -17,12 +17,9 @@ async function fetchTagInfo(tag) {
     const { data } = await axios.get(`${API.HOST}?method=${endpoint}&tag=${tag}&api_key=${API.KEY}&format=json`);
     return data.tag.wiki;
   } catch (error) {
-    // TODO: send to Sentry
-    console.log(error);
     throw new Error(error.message);
   }
 }
-
 
 /**
  * Fetch top tags
@@ -37,8 +34,6 @@ async function fetchTopTags() {
     const { data } = await axios.get(`${API.HOST}?method=${endpoint}&api_key=${API.KEY}&format=json`);
     return data.toptags.tag;
   } catch (error) {
-    // TODO: send to Sentry
-    console.log(error);
     throw new Error(error.message);
   }
 }
@@ -57,8 +52,6 @@ async function fetchAlbums(tag) {
     const { data } = await axios.get(`${API.HOST}?method=${endpoint}&tag=${tag}&api_key=${API.KEY}&format=json`);
     return data.albums;
   } catch (error) {
-    // TODO: send to Sentry
-    console.log(error);
     throw new Error(error.message);
   }
 }
@@ -79,12 +72,9 @@ async function fetchAlbumInfo({ artist, album }) {
     const { data } = await axios.get(`${API.HOST}?method=${endpoint}&api_key=${API.KEY}&artist=${artist}&album=${album}&format=json`);
     return data.album;
   } catch (error) {
-    // TODO: send to Sentry
-    console.log(error);
     throw new Error(error.message);
   }
 }
-
 
 export default {
   fetchTopTags,
