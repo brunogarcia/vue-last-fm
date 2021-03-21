@@ -6,10 +6,8 @@ exports[`Albums.vue Renders correctly 1`] = `
 >
   <v-col-stub
     cols="12"
-    md="8"
-    offsetmd="2"
-    offsetsm="3"
-    sm="6"
+    lg="8"
+    offsetlg="2"
     tag="div"
   >
     <v-card-stub
@@ -20,12 +18,15 @@ exports[`Albums.vue Renders correctly 1`] = `
         fluid="true"
         tag="div"
       >
+         
         <v-row-stub
           tag="div"
         >
           <v-col-stub
             class="d-flex child-flex"
-            cols="4"
+            cols="12"
+            lg="4"
+            sm="6"
             tag="div"
           >
             <v-hover-stub
@@ -35,7 +36,9 @@ exports[`Albums.vue Renders correctly 1`] = `
           </v-col-stub>
           <v-col-stub
             class="d-flex child-flex"
-            cols="4"
+            cols="12"
+            lg="4"
+            sm="6"
             tag="div"
           >
             <v-hover-stub
@@ -45,7 +48,9 @@ exports[`Albums.vue Renders correctly 1`] = `
           </v-col-stub>
           <v-col-stub
             class="d-flex child-flex"
-            cols="4"
+            cols="12"
+            lg="4"
+            sm="6"
             tag="div"
           >
             <v-hover-stub
@@ -55,7 +60,9 @@ exports[`Albums.vue Renders correctly 1`] = `
           </v-col-stub>
           <v-col-stub
             class="d-flex child-flex"
-            cols="4"
+            cols="12"
+            lg="4"
+            sm="6"
             tag="div"
           >
             <v-hover-stub
@@ -65,7 +72,9 @@ exports[`Albums.vue Renders correctly 1`] = `
           </v-col-stub>
           <v-col-stub
             class="d-flex child-flex"
-            cols="4"
+            cols="12"
+            lg="4"
+            sm="6"
             tag="div"
           >
             <v-hover-stub
@@ -75,7 +84,9 @@ exports[`Albums.vue Renders correctly 1`] = `
           </v-col-stub>
           <v-col-stub
             class="d-flex child-flex"
-            cols="4"
+            cols="12"
+            lg="4"
+            sm="6"
             tag="div"
           >
             <v-hover-stub

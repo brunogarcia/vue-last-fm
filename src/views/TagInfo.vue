@@ -23,6 +23,14 @@ export default {
     }),
   },
 
+  watch: {
+    tag(newTag, oldTag) {
+      if (newTag !== oldTag) {
+        this.loadData();
+      }
+    },
+  },
+
   created() {
     this.loadData();
   },
