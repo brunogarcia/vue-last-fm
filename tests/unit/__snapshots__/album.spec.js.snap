@@ -38,7 +38,6 @@ exports[`Album.vue Renders correctly 1`] = `
         activeclass=""
         class="mr-2"
         closeicon="$delete"
-        closelabel="$vuetify.close"
         color="primary"
         filtericon="$complete"
         small="true"
@@ -62,7 +61,6 @@ exports[`Album.vue Renders correctly 1`] = `
         activeclass=""
         class="mr-2"
         closeicon="$delete"
-        closelabel="$vuetify.close"
         color="primary"
         filtericon="$complete"
         small="true"
@@ -86,7 +84,6 @@ exports[`Album.vue Renders correctly 1`] = `
         activeclass=""
         class="mr-2"
         closeicon="$delete"
-        closelabel="$vuetify.close"
         color="primary"
         filtericon="$complete"
         small="true"
@@ -110,7 +107,6 @@ exports[`Album.vue Renders correctly 1`] = `
         activeclass=""
         class="mr-2"
         closeicon="$delete"
-        closelabel="$vuetify.close"
         color="primary"
         filtericon="$complete"
         small="true"
@@ -134,7 +130,6 @@ exports[`Album.vue Renders correctly 1`] = `
         activeclass=""
         class="mr-2"
         closeicon="$delete"
-        closelabel="$vuetify.close"
         color="primary"
         filtericon="$complete"
         small="true"
@@ -167,6 +162,7 @@ exports[`Album.vue Renders correctly 1`] = `
      
     <v-list-stub
       tag="div"
+      tile="true"
       twoline="true"
     >
       <v-list-item-stub
