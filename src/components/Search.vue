@@ -9,12 +9,13 @@
         v-model="select"
         :items="items"
         :search-input.sync="search"
+        :hint="items.length > 0 ? '' : 'Eg: post-rock, death metal, indie, electronic'"
         flat
         clearable
         cache-items
         class="mx-4"
         hide-no-data
-        hide-details
+        persistent-hint
         label="What music genre do you like more?"
       />
     </v-col>
