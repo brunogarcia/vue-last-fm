@@ -8,7 +8,7 @@ Created with Vue ecosystem: Vuex, Vue Router and Vuetify
 
 What music genre do you like more?
 
-[https://vue-last-fm.now.sh/](https://vue-last-fm.now.sh/)
+[https://vue-last-fm.netlify.app](https://vue-last-fm.netlify.app)
 
 ## Last.fm resources
 
