@@ -31,7 +31,10 @@
 
       <p v-html="getSummary(album.wiki)" />
 
-      <v-list two-line>
+      <v-list
+        v-if="album.tracks"
+        two-line
+      >
         <v-list-item
           v-for="(track, index) in album.tracks.track"
           :key="index"
